@@ -6,13 +6,35 @@
 hostname=$HOSTNAME
 
 #get os
-os=$(uname -s)
+os=$(uname)
 
 #get shell
 shell=$SHELL
 
-#get packages installed
-#pkgs=$(pacman -Q | wc -l)
+#get packages installed (thanks to nerdfetch for this implementation)
+pkgs=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
+pkgs=${pkgs##*/}
+case $pkgs in
+	cpm) packages="$(cpm C)";;
+	brew) packages="$(brew list --formula | wc -l)";;
+	port) packages=$(port installed | tot);;
+	apt) packages="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";;
+	rpm) packages="$(rpm -qa --last| wc -l)";;
+	yum) packages="$(yum list installed | wc -l)";;
+	dnf) packages="$(dnf list installed | wc -l)";;
+	zypper) packages="$(zypper se | wc -l)";;
+	pacman) packages="$(pacman -Q | wc -l)";;
+	yay) packages="$(yay -Q | wc -l)";;
+	kiss) packages="$(kiss list | wc -l)";;
+	pkg|emerge) packages="$(qlist -I | wc -l)";;
+	cave) packages="$(cave show installed-slots | wc -l)";;
+	xbps-query) packages="$(xbps-query -l | wc -l)";;
+	nix-env) packages="$(nix-store -q --requisites /run/current-system/sw | wc -l)";;
+	apk) packages="$(apk list --installed | wc -l)";;
+	brl) packages="$(brl list | wc -l)";;
+	eopkg) packages="$(eopkg li | wc -l)";;
+	*) packages="idk"
+esac
 
 #get kernel version
 kernel=$(uname -r)
@@ -21,6 +43,19 @@ kernel=$(uname -r)
 time=$(uptime)
 uptime="${time%%,  *}"
 
+#define colors (thanks to nerdfetch and ufetch)
+
+bold='[1m'
+black='[30m'
+red='[31m'
+green='[32m'
+yellow='[33m'
+blue='[34m'
+magenta='[35m'
+cyan='[36m'
+white='[37m'
+grey='[90m'
+reset='[0m'
 
 
 #printing
@@ -33,7 +68,7 @@ echo -e "\e[33m(\_;/)\e[0m"
 echo -e "\e[36mhost\e[0m   $hostname"
 echo -e "\e[36mOS\e[0m     $os" 
 echo -e "\e[36mshell\e[0m  ${shell##*/}" 
-#echo -e "\e[36mpkgs\e[0m   $pkgs"
+echo -e "\e[36mpkgs\e[0m   $packages"
 echo -e "\e[36mkernel\e[0m $kernel"  
-echo -e "\e[36muptime\e[0m ${uptime##*  }"      
+echo -e "\e[36muptime\e[0m${uptime##*  }"      
 echo ""
