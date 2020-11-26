@@ -17,7 +17,7 @@ pkgs=${pkgs##*/}
 case $pkgs in
 	cpm) packages="$(cpm C)";;
 	brew) packages="$(brew list --formula | wc -l)";;
-	port) packages=$(port installed | tot);;
+	port) packages="$(port installed | tot)";;
 	apt) packages="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";;
 	rpm) packages="$(rpm -qa --last| wc -l)";;
 	yum) packages="$(yum list installed | wc -l)";;
@@ -70,5 +70,5 @@ echo -e "\e[36mOS\e[0m     $os"
 echo -e "\e[36mshell\e[0m  ${shell##*/}" 
 echo -e "\e[36mpkgs\e[0m   $packages"
 echo -e "\e[36mkernel\e[0m $kernel"  
-echo -e "\e[36muptime\e[0m${uptime##*  }"      
+echo -e "\e[36muptime\e[0m ${uptime##*  }"      
 echo ""
