@@ -1,0 +1,39 @@
+#!/bin/sh
+
+#getting all the useful information
+
+#get host name
+hostname=$HOSTNAME
+
+#get os
+os=$(uname -s)
+
+#get shell
+shell=$SHELL
+
+#get packages installed
+#pkgs=$(pacman -Q | wc -l)
+
+#get kernel version
+kernel=$(uname -r)
+
+#get uptime
+time=$(uptime)
+uptime="${time%%,  *}"
+
+
+
+#printing
+echo -e "\e[33m  .-.\e[0m"
+echo -e "\e[33m  oo|\e[0m"
+echo -e "\e[33m /  |\\e[0m"
+echo -e "\e[33m(\_;/)\e[0m"
+
+    
+echo -e "\e[36mhost\e[0m   $hostname"
+echo -e "\e[36mOS\e[0m     $os" 
+echo -e "\e[36mshell\e[0m  ${shell##*/}" 
+#echo -e "\e[36mpkgs\e[0m   $pkgs"
+echo -e "\e[36mkernel\e[0m $kernel"  
+echo -e "\e[36muptime\e[0m ${uptime##*  }"      
+echo ""
