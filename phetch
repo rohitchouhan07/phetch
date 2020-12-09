@@ -43,7 +43,7 @@ kernel=$(uname -r)
 
 #get uptime
 time=$(uptime -p)
-#uptime="${time%%p  *}"
+time="${time##up}"
 
 #define colors (thanks to nerdfetch and ufetch)
 
@@ -70,16 +70,14 @@ cat <<-EOF
   | ,___|  
   |   /    
  /____\    
-/      \\
-${reset}
+/      \\${reset}
 EOF
 
     
-
-echo -e "\e[34mOS\e[0m     $os" 
-echo -e "\e[34mhost\e[0m   $hostname"
-echo -e "\e[34mshell\e[0m  ${shell##*/}" 
-echo -e "\e[34mpkgs\e[0m   $packages"
-echo -e "\e[34mkernel\e[0m $kernel"  
-echo -e "\e[34muptime\e[0m${time##up}"      
-echo ""
+printf '%s\n' "${blue}OS${reset}     $os"
+printf '%s\n' "${blue}host${reset}   $hostname"
+printf '%s\n' "${blue}shell${reset}  ${shell##*/}" 
+printf '%s\n' "${blue}pkgs${reset}   $packages"
+printf '%s\n' "${blue}kernel${reset} $kernel"  
+printf '%s\n' "${blue}uptime${reset} ${time#${time%%[![:space:]]*}}"
+printf "\n"
