@@ -63,26 +63,29 @@ white='[37m'
 grey='[90m'
 reset='[0m'
 
+art=3
 
-#printing
+#printing the ascii art
+
 cat <<-EOF
- ${yellow}|\/\/\/|
- |      |  
- |      |  
- | (o)(o)  
- C      _) 
-  | ,___|  
-  |   /    
- /____\    
-/      \\${reset}
+ ${yellow}|\/\/\/|${reset}
+ ${yellow}|      |${reset}   ${blue}OS${reset}     $os
+ ${yellow}|      |${reset}   ${blue}host${reset}   $hostname
+ ${yellow}| (o)(o)${reset}   ${blue}shell${reset}  ${shell##*/}
+ ${yellow}C      _)${reset}  ${blue}pkgs${reset}   $packages
+ ${yellow} | ,___|${reset}   ${blue}kernel${reset} $kernel
+ ${yellow} |   /${reset}     ${blue}memory${reset} $mem
+ ${yellow}/____\\${reset}     ${blue}uptime${reset} ${time#${time%%[![:space:]]*}}
+${yellow}/      \\${reset}
+		
 EOF
 
 #printing all the data here, comment out the ones you don't need   
-printf '%s\n' "${blue}OS${reset}     $os"
-printf '%s\n' "${blue}host${reset}   $hostname"
-printf '%s\n' "${blue}shell${reset}  ${shell##*/}" 
-printf '%s\n' "${blue}pkgs${reset}   $packages"
-printf '%s\n' "${blue}kernel${reset} $kernel"
-printf '%s\n' "${blue}memory${reset} $mem"
-printf '%s\n' "${blue}uptime${reset} ${time#${time%%[![:space:]]*}}"
-printf "\n"
+#printf '%s\n' "${blue}OS${reset}     $os"
+#printf '%s\n' "${blue}host${reset}   $hostname"
+#printf '%s\n' "${blue}shell${reset}  ${shell##*/}" 
+#printf '%s\n' "${blue}pkgs${reset}   $packages"
+#printf '%s\n' "${blue}kernel${reset} $kernel"
+#printf '%s\n' "${blue}memory${reset} $mem"
+#printf '%s\n' "${blue}uptime${reset} ${time#${time%%[![:space:]]*}}"
+#printf "\n"
