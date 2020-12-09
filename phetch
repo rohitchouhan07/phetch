@@ -5,8 +5,10 @@
 #get host name
 hostname=$HOSTNAME
 
-#get os
-os=$(uname)
+#get OS name
+#sourcing the file for easily getting the distribution name
+. /etc/os-release
+os=$PRETTY_NAME
 
 #get shell
 shell=$SHELL
@@ -40,8 +42,8 @@ esac
 kernel=$(uname -r)
 
 #get uptime
-time=$(uptime)
-uptime="${time%%,  *}"
+time=$(uptime -p)
+#uptime="${time%%p  *}"
 
 #define colors (thanks to nerdfetch and ufetch)
 
@@ -59,16 +61,25 @@ reset='[0m'
 
 
 #printing
-echo -e "\e[33m  .-.\e[0m"
-echo -e "\e[33m  oo|\e[0m"
-echo -e "\e[33m /  |\\e[0m"
-echo -e "\e[33m(\_;/)\e[0m"
+cat <<-EOF
+ ${yellow}|\/\/\/|  
+ |      |  
+ |      |  
+ | (o)(o)  
+ C      _) 
+  | ,___|  
+  |   /    
+ /____\    
+/      \\
+${reset}
+EOF
 
     
-echo -e "\e[36mhost\e[0m   $hostname"
-echo -e "\e[36mOS\e[0m     $os" 
-echo -e "\e[36mshell\e[0m  ${shell##*/}" 
-echo -e "\e[36mpkgs\e[0m   $packages"
-echo -e "\e[36mkernel\e[0m $kernel"  
-echo -e "\e[36muptime\e[0m ${uptime##*  }"      
+
+echo -e "\e[34mOS\e[0m     $os" 
+echo -e "\e[34mhost\e[0m   $hostname"
+echo -e "\e[34mshell\e[0m  ${shell##*/}" 
+echo -e "\e[34mpkgs\e[0m   $packages"
+echo -e "\e[34mkernel\e[0m $kernel"  
+echo -e "\e[34muptime\e[0m${time##up}"      
 echo ""
