@@ -1,4 +1,5 @@
 #!/bin/sh
+# A newbies attempt at a status posix script, a lot needs to be learnt and improved
 
 #getting all the useful information
 
@@ -12,6 +13,9 @@ os=$PRETTY_NAME
 
 #get shell
 shell=$SHELL
+
+#get RAM usage
+mem=$(free -m | awk '/^Mem/ {print $3"M / "$2"M"}') 
 
 #get packages installed (thanks to nerdfetch for this implementation)
 pkgs=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
@@ -62,7 +66,7 @@ reset='[0m'
 
 #printing
 cat <<-EOF
- ${yellow}|\/\/\/|  
+ ${yellow}|\/\/\/|
  |      |  
  |      |  
  | (o)(o)  
@@ -73,11 +77,12 @@ cat <<-EOF
 /      \\${reset}
 EOF
 
-    
+#printing all the data here, comment out the ones you don't need   
 printf '%s\n' "${blue}OS${reset}     $os"
 printf '%s\n' "${blue}host${reset}   $hostname"
 printf '%s\n' "${blue}shell${reset}  ${shell##*/}" 
 printf '%s\n' "${blue}pkgs${reset}   $packages"
-printf '%s\n' "${blue}kernel${reset} $kernel"  
+printf '%s\n' "${blue}kernel${reset} $kernel"
+printf '%s\n' "${blue}memory${reset} $mem"
 printf '%s\n' "${blue}uptime${reset} ${time#${time%%[![:space:]]*}}"
 printf "\n"
