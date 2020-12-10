@@ -6,5 +6,5 @@
 2. `cd phetch`
 3. `sudo make install`
 #### Tried and tested on Arch linux, but should work on most Linux distros
-![Phetch is so cool!](/scrot_phetch "Phetch")
+![Phetch is so cool!](~/phetch/scrot_phetch "Phetch")
 If you encounter any bugs or errors please report them.
