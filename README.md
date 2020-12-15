@@ -9,3 +9,7 @@
 ![Phetch is so cool!](https://github.com/rohitchouhan07/phetch/blob/master/scrot_phetch.png "Phetch")
 
 If you encounter any bugs or errors please report them.
+
+#### Credits
+This was a small learning project made for my own usage. This was only possible because of pfetch, ufetch and nerdfetch.
+A big thanks to them.

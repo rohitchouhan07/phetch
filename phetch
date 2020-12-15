@@ -63,7 +63,6 @@ white='[37m'
 grey='[90m'
 reset='[0m'
 
-art=3
 
 #printing the ascii art
 
