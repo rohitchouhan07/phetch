@@ -8,8 +8,9 @@
 #### Tried and tested on Arch linux, but should work on most Linux distros
 ![Phetch is so cool!](https://github.com/rohitchouhan07/phetch/blob/master/scrot_phetch.png "Phetch")
 
-If you encounter any bugs or errors please report them.
-
 #### Credits
 This was a small learning project made for my own usage. This was only possible because of [pfetch](https://github.com/dylanaraps/pfetch), [ufetch](https://gitlab.com/jschx/ufetch) and [nerdfetch](https://github.com/ThatOneCalculator/NerdFetch).
 A big thanks to them.
+
+#### Bugs?
+If you encounter any bugs or errors please report them.
