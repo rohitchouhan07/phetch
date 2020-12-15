@@ -11,5 +11,5 @@
 If you encounter any bugs or errors please report them.
 
 #### Credits
-This was a small learning project made for my own usage. This was only possible because of pfetch, ufetch and nerdfetch.
+This was a small learning project made for my own usage. This was only possible because of [pfetch](https://github.com/dylanaraps/pfetch), [ufetch](https://gitlab.com/jschx/ufetch) and [nerdfetch](https://github.com/ThatOneCalculator/NerdFetch).
 A big thanks to them.
