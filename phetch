@@ -47,7 +47,7 @@ esac
 #get kernel version
 kernel=$(uname -r)
 
-#get uptime
+#get uptime (need to fix the spacing issue here)
 time=$(uptime -p)
 time="${time##up}"
 
@@ -57,27 +57,28 @@ bold='[1m'
 black='[30m'
 red='[31m'
 green='[32m'
-yellow='[33m'
+yellow='[38;2;255;255;0m'
 blue='[34m'
 magenta='[35m'
 cyan='[36m'
 white='[37m'
 grey='[90m'
 reset='[0m'
+teal='[38;2;0;255;191m'
 
 
 #printing the ascii art
 
 cat <<-EOF
  ${yellow}|\/\/\/|${reset}
- ${yellow}|      |${reset}   ${blue}OS${reset}     $os
- ${yellow}|      |${reset}   ${blue}host${reset}   $hostname
- ${yellow}| (o)(o)${reset}   ${blue}shell${reset}  ${shell##*/}
- ${yellow}C      _)${reset}  ${blue}pkgs${reset}   $packages
- ${yellow} | ,___|${reset}   ${blue}kernel${reset} $kernel
- ${yellow} |   /${reset}     ${blue}memory${reset} $mem
- ${yellow}/____\\${reset}     ${blue}uptime${reset} ${time#${time%%[![:space:]]*}}
+ ${yellow}|      |${reset}   ${teal}OS${reset}     $os
+ ${yellow}|      |${reset}   ${teal}host${reset}   $hostname
+ ${yellow}| (o)(o)${reset}   ${teal}shell${reset}  ${shell##*/}
+ ${yellow}C      _)${reset}  ${teal}pkgs${reset}   $packages
+ ${yellow} | ,___|${reset}   ${teal}kernel${reset} $kernel
+ ${yellow} |   /${reset}     ${teal}memory${reset} $mem
+ ${yellow}/____\\${reset}     ${teal}uptime${reset} ${time#${time%%[![:space:]]*}}
 ${yellow}/      \\${reset}
-		
+
 EOF
 
