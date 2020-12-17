@@ -1,5 +1,5 @@
 #!/bin/sh
-# A newbies attempt at a status shell script, a lot needs to be learnt and improved
+# A newbie's attempt at making a shell script, a lot needs to be learnt and improved
 
 #getting all the useful information
 
@@ -70,7 +70,7 @@ teal='[38;2;0;255;191m'
 #Delimiter (feel free to change this)
 delimiter=${cyan}'~'${reset}
 
-#printing the ascii art
+#printing the ascii art and data
 
 cat <<-EOF
  ${yellow}|\/\/\/|${reset}
