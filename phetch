@@ -67,17 +67,20 @@ reset='[0m'
 teal='[38;2;0;255;191m'
 
 
+#Delimiter (feel free to change this)
+delimiter=${cyan}'~'${reset}
+
 #printing the ascii art
 
 cat <<-EOF
  ${yellow}|\/\/\/|${reset}
- ${yellow}|      |${reset}   ${teal}OS${reset}     $os
- ${yellow}|      |${reset}   ${teal}host${reset}   $hostname
- ${yellow}| (o)(o)${reset}   ${teal}shell${reset}  ${shell##*/}
- ${yellow}C      _)${reset}  ${teal}pkgs${reset}   $packages
- ${yellow} | ,___|${reset}   ${teal}kernel${reset} $kernel
- ${yellow} |   /${reset}     ${teal}memory${reset} $mem
- ${yellow}/____\\${reset}     ${teal}uptime${reset} ${time#${time%%[![:space:]]*}}
+ ${yellow}|      |${reset}   ${teal}OS${reset}     $delimiter $os
+ ${yellow}|      |${reset}   ${teal}host${reset}   $delimiter $hostname
+ ${yellow}| (o)(o)${reset}   ${teal}shell${reset}  $delimiter ${shell##*/}
+ ${yellow}C      _)${reset}  ${teal}pkgs${reset}   $delimiter $packages
+ ${yellow} | ,___|${reset}   ${teal}kernel${reset} $delimiter $kernel
+ ${yellow} |   /${reset}     ${teal}memory${reset} $delimiter $mem
+ ${yellow}/____\\${reset}     ${teal}uptime${reset} $delimiter ${time#${time%%[![:space:]]*}}
 ${yellow}/      \\${reset}
 
 EOF
