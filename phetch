@@ -4,7 +4,7 @@
 #getting all the useful information
 
 #get host name
-hostname=$HOSTNAME
+hostname=$(cat /proc/sys/kernel/hostname)
 
 #get OS name
 #sourcing the file for easily getting the distribution name
