@@ -24,7 +24,7 @@ mem=$(free -m | awk '/^Mem/ {print $3"M / "$2"M"}')
 
 #pkgs=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
 #pkgs=${pkgs##*/}
-pkgs='y'
+pkgs='yay'
 case $pkgs in
 	cpm) packages="$(cpm C)";;
 	brew) packages="$(brew list --formula | wc -l)";;
@@ -35,7 +35,7 @@ case $pkgs in
 	dnf) packages="$(dnf list installed | wc -l)";;
 	zypper) packages="$(zypper se | wc -l)";;
 	pacman) packages="$(pacman -Q | wc -l)";;
-	yay) packages="$(yay -Q | wc -l)";;
+	yay) packages="$(pacman -Q | wc -l)";;
 	kiss) packages="$(kiss list | wc -l)";;
 	pkg|emerge) packages="$(qlist -I | wc -l)";;
 	cave) packages="$(cave show installed-slots | wc -l)";;
