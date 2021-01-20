@@ -9,6 +9,7 @@
 #### How to use?
 1. type phetch in your terminal or
 2. add it to your bashrc file.
+
 ![Phetch is so cool!](https://github.com/rohitchouhan07/phetch/blob/master/scrot_phetch.png "Phetch")
 
 #### Credits
