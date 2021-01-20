@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pkg=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
+pkg=${pkg##*/}
+sed  -i "0,/here/s//$pkg/" phetch
+

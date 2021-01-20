@@ -18,10 +18,13 @@ shell=$SHELL
 mem=$(free -m | awk '/^Mem/ {print $3"M / "$2"M"}') 
 
 #get packages installed (thanks to nerdfetch for this implementation)
-#this is the most expensive operation in terms of time, the goal is to get this working faster.
+#yay -Q is expensive operation on arch.
+#Get RID OF IT
+#which is harmless
 
-pkgs=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
-pkgs=${pkgs##*/}
+#pkgs=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
+#pkgs=${pkgs##*/}
+pkgs='y'
 case $pkgs in
 	cpm) packages="$(cpm C)";;
 	brew) packages="$(brew list --formula | wc -l)";;
@@ -47,7 +50,7 @@ esac
 #get kernel version
 kernel=$(uname -r)
 
-#get uptime (need to fix the spacing issue here)
+#get uptime (need to fix the spacing issue )
 time=$(uptime -p)
 time="${time##up}"
 
