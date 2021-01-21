@@ -1,4 +1,6 @@
 #!/bin/sh
+#using this script we can identify the package manager on install and then the main script doesn't need to  do that
+#again and again
 
 pkg=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
 pkg=${pkg##*/}
